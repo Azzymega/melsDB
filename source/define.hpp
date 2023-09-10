@@ -7,6 +7,11 @@ using u2 = uint16_t;
 using u4 = uint32_t;
 using u8 = uint64_t;
 
+enum opcodes
+{
+// дописать!
+};
+
 enum dataType
 {
     utf16string,

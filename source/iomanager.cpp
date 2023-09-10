@@ -68,7 +68,7 @@ void iomanager::outputTable(tableFile *file)
 
 tableFile *iomanager::inputTable()
 {
-    tableFile* file = new tableFile();
+    tableFile *file = new tableFile();
     file->header = loadU4();
     if (file->header != 0xBEBEBABA)
     {
@@ -85,14 +85,14 @@ tableFile *iomanager::inputTable()
         {
             data.push_back(loadU2());
         }
-        file->pool.push_back(unicodeRecord(type,length,data));
+        file->pool.push_back(unicodeRecord(type, length, data));
     }
     file->typesCount = loadU2();
     for (size_t i = 0; i < file->typesCount; i++)
     {
         dataType type = (dataType)loadU4();
         u4 nameIndex = loadU4();
-        file->types.push_back(dataFile(type,nameIndex));
+        file->types.push_back(dataFile(type, nameIndex));
     }
     file->recordsCount = loadU4();
     for (size_t i = 0; i < file->recordsCount; i++)
@@ -103,10 +103,11 @@ tableFile *iomanager::inputTable()
         {
             dataType type = (dataType)loadU4();
             u4 nameIndex = loadU4();
-            rc.records.push_back(dataFile(type,nameIndex));
+            rc.records.push_back(dataFile(type, nameIndex));
         }
         file->records.push_back(rc);
     }
+    return file;
 }
 
 void iomanager::openReadStream(std::wstring path)
@@ -148,14 +149,14 @@ void iomanager::writeTable(table selectedTable)
 
 table iomanager::readTable()
 {
-    tableFile* file = inputTable();
+    tableFile *file = inputTable();
     table currentTable = table();
     std::vector<data> types;
     for (size_t i = 0; i < file->types.size(); i++)
     {
         dataType type = file->types[i].returnType();
         std::wstring internal = file->pool[file->types[i].returnNameIndex()].returnData();
-        types.push_back(data(type,internal));
+        types.push_back(data(type, internal));
     }
     currentTable.setTypes(types);
     std::vector<std::vector<data>> internals;
@@ -166,7 +167,7 @@ table iomanager::readTable()
         {
             dataType type = file->records[i].records[j].returnType();
             std::wstring internal = file->pool[file->records[i].records[j].returnNameIndex()].returnData();
-            dataInfo.push_back(data(type,internal));
+            dataInfo.push_back(data(type, internal));
         }
         internals.push_back(dataInfo);
     }
