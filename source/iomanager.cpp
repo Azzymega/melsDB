@@ -110,12 +110,12 @@ tableFile *iomanager::inputTable()
     return file;
 }
 
-void iomanager::openReadStream(std::wstring path)
+void iomanager::openReadStream(std::string path)
 {
     this->readStream.open(path, std::ios::binary);
 }
 
-void iomanager::openWriteStream(std::wstring path)
+void iomanager::openWriteStream(std::string path)
 {
     this->writeStream.open(path, std::ios::binary);
 }

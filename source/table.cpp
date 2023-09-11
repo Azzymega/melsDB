@@ -10,6 +10,11 @@ void table::setInternals(std::vector<std::vector<data>> internal)
     this->internal = internal;
 }
 
+void table::addInternals(std::vector<data> internal)
+{
+    this->internal.push_back(internal);
+}
+
 int table::returnTypesLength()
 {
     return types.size();
@@ -41,4 +46,9 @@ data table::returnTypes(int index)
 std::vector<std::vector<data>> table::returnInternals()
 {
     return internal;
+}
+
+std::vector<data> table::getTypes() const
+{
+    return types;
 }

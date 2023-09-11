@@ -1,16 +1,19 @@
 #pragma once
 #include <stack>
 #include "data.hpp"
-#include "interpreter.hpp"
+#include "iomanager.hpp"
+#include "table.hpp"
+
 class marxVM
 {
 private:
-    std::stack<data> stack;
-    interpreter executer;
+    iomanager ioctrl;
+    std::stack<table> stack;
 public:
     marxVM();
     ~marxVM();
-    void pushToStack(data info);
+    void pushToStack(table info);
     void popFromStack();
-    data getTopFromStack();
+    table getTopFromStack();
+    iomanager* makeIOCall();
 };

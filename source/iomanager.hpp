@@ -17,8 +17,8 @@ private:
     void outputTable(tableFile* file);
     tableFile* inputTable();
 public:
-    void openReadStream(std::wstring path);
-    void openWriteStream(std::wstring path);
+    void openReadStream(std::string path);
+    void openWriteStream(std::string path);
     void writeTable(table selectedTable);
     table readTable();
 };
