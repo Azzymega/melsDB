@@ -9,8 +9,19 @@ protected:
     std::vector<std::wstring> args;
 
 public:
+    void pushArgs(std::wstring arg);
     virtual void execute(marxVM* runtime) = 0;
     std::vector<std::wstring> getArgs() const;
+};
+
+class exitOpcode : public opcode {
+public:
+    void execute(marxVM* runtime) override;
+};
+
+class createOpcode : public opcode {
+public:
+    void execute(marxVM* runtime) override;
 };
 
 class ioloadOpcode : public opcode {

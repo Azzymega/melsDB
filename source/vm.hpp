@@ -10,8 +10,6 @@ private:
     iomanager ioctrl;
     std::stack<table> stack;
 public:
-    marxVM();
-    ~marxVM();
     void pushToStack(table info);
     void popFromStack();
     table getTopFromStack();

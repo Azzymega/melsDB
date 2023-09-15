@@ -6,7 +6,7 @@
 #include <regex>
 
 struct constLexData {
-    std::wstring keywordRegex = L"ВЫБРАТЬ|ГДЕ|ЗАПИСЬ|ЗАГРУЗ|СБРОС";
+    std::wstring keywordRegex = L"ВЫБРАТЬ|ГДЕ|ЗАПИСЬ|ЗАГРУЗИТЬ|СБРОС|СОЗДАТЬ|ВЫЙТИ|ПЕЧАТЬ";
     std::wstring integerRegex = L"[0-9]+";
     std::wstring logicRegex = L"&&|\\||\\|==|!=|>=|<=|>|<";
 };

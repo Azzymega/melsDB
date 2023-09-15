@@ -1,5 +1,10 @@
 #include "opcode.hpp"
 
+void opcode::pushArgs(std::wstring arg)
+{
+    this->args.push_back(arg);
+}
+
 std::vector<std::wstring> opcode::getArgs() const
 {
     return args;
@@ -114,4 +119,14 @@ void whereOpcode::execute(marxVM *runtime)
         }
     }
     runtime->pushToStack(newTable);
+}
+
+void createOpcode::execute(marxVM *runtime)
+{
+    runtime->pushToStack(table());
+}
+
+void exitOpcode::execute(marxVM *runtime)
+{
+    exit(0);
 }

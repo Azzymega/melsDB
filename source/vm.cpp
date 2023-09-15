@@ -1,14 +1,5 @@
 #include "vm.hpp"
 
-marxVM::marxVM()
-{
-
-}
-
-marxVM::~marxVM()
-{
-    
-}
 
 void marxVM::pushToStack(table info)
 {
